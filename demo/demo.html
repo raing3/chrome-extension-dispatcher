@@ -1,0 +1,47 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .result {
+            background-color: #ccc;
+            margin-top: 16px;
+            padding: 8px;
+            max-width: 500px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+    <script>
+        function getTabs() {
+            try {
+                window.extensionDispatcherDemo.getTabs()
+                    .then(tabs => {
+                        document.querySelector('.result').innerText = JSON.stringify(tabs, null, 4);
+                    })
+                    .catch(error => {
+                        document.querySelector('.result').innerText = error.stack;
+                    });
+            } catch (error) {
+                document.querySelector('.result').innerText = error.stack + '\n\nHave you installed the extension?';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Instructions</h2>
+    <div class="instructions">
+        <ol>
+            <li>Compile the extension located in ./extension using "npm install && npm run build".</li>
+            <li>Install the extension in Chrome.</li>
+            <li>Reload the page.</li>
+            <li>Click the button below.</li>
+        </ol>
+    </div>
+    <h2>Result</h2>
+    <button onclick="getTabs()">Get tabs</button>
+    <div class="result">(none)</div>
+</body>
+</html>

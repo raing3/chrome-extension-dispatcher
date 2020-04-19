@@ -1,0 +1,21 @@
+{
+  "name": "@rainger/chrome-extension-dispatcher-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && webpack --config webpack.config.js --mode=development"
+  },
+  "author": "Richard Ainger <raing3@gmail.com>",
+  "dependencies": {
+    "@rainger/chrome-extension-dispatcher": "file:../.."
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.96",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-extension-manifest-plugin": "^0.5.0"
+  }
+}
